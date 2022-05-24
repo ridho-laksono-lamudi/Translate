@@ -18,7 +18,7 @@ class Legacy extends Storage
         $prop->setAccessible(true);
         $app = $prop->getValue($this);
         $this->localeValues = $values;
-        
+
         $localeSlug = $app['translate.slug'];
         if (isset($values[$localeSlug . 'data'])) {
             $localeData = json_decode($values[$localeSlug . 'data'], true);
@@ -76,8 +76,8 @@ class Legacy extends Storage
         $contentTypeName = $record->contenttype['slug'];
 
         $contentType = $app['config']->get('contenttypes/' . $contentTypeName);
-        
-        $values = $this->localeValues;
+
+        $values = $record;
         $localeSlug = $app['translate.slug'];
 
         if (isset($values[$localeSlug . 'data'])) {
